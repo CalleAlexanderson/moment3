@@ -1,0 +1,137 @@
+@use "sass:color";
+
+$background-color: #21055e;
+
+$primary-color-dark: #00454b;
+$secondary-color-dark: #002537;
+$accent-color-dark: #3b3b3b;
+$text-color-dark: #ededed;
+
+$primary-color-light: #44d5ff;
+$secondary-color-light: #86f5ff;
+$accent-color-light: #348bc8;
+$text-color-light: #000000;
+
+@mixin lightOrDarkBG($light-theme) {
+  @if $light-theme {
+    background-color: lighten($background-color, 60%);
+    color: $text-color-light;
+  } @else {
+    background-color: $background-color;
+    color: $text-color-dark;
+  }
+}
+
+@mixin lightOrDarkPrimary($light-theme) {
+  @if $light-theme {
+    background-color: lighten($primary-color-dark, 60%);
+    color: $text-color-light;
+  } @else {
+    background-color: $primary-color-darkr;
+    color: $text-color-dark;
+  }
+}
+
+@mixin lightOrDarksecondary($light-theme) {
+  @if $light-theme {
+    background-color: lighten($secondary-color-dark, 60%);
+    color: $text-color-light;
+  } @else {
+    background-color: $secondary-color-dark;
+    color: $text-color-dark;
+  }
+}
+
+@mixin contentSection($w, $h, $r: 0) {
+  width: $w;
+  height: $h;
+  border-radius: $r;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  @include lightOrDarkBG(true);
+  max-width: 1600px;
+  margin: auto;
+
+  header {
+    @include lightOrDarksecondary(true);
+    display: flex;
+    position: relative;
+    height: 80px;
+    width: 100%;
+
+    #logo {
+      height: 80px;
+    }
+
+    #menu_btn {
+      position: absolute;
+      right: 10px;
+    }
+
+    #pc_menu {
+      visibility: hidden;
+    }
+
+    #mobile_menu {
+      background-color: $secondary-color-light;
+    }
+  }
+
+  #index_main {
+    section {
+      @include contentSection(100%, auto);
+    }
+  }
+}
+
+@media screen and (min-width: 601px) {
+  body {
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  body {
+    header {
+      #menu_btn {
+        visibility: hidden;
+      }
+
+      #pc_menu {
+        visibility: visible;
+        position: absolute;
+        right: 10px;
+        top: 30px;
+
+        ul {
+          list-style: none;
+          display: flex;
+          flex-direction: row;
+
+          li {
+            margin: 0 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    @include lightOrDarkBG(false);
+
+    header {
+      @include lightOrDarksecondary(false);
+      
+    #logo {
+      background-color: lighten($primary-color-dark, 60%);
+    }
+    }
+  }
+}
