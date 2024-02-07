@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="menu.js" defer></script>
+    <link rel="stylesheet" href="style.scss">
     <title>Sass</title>
 </head>
+
 <body>
     <header>
-        <a href="index.html" aria-label="till startsida"><img src="pictures/placeholder logo.svg" alt=""></a>
-        <nav>
+        <a href="index.html" aria-label="till startsida"><img src="pictures/placeholder logo.svg" alt="" id="logo"></a>
+        <nav id="pc_menu">
             <ul>
                 <li><a href="sass.html">Sass</a></li>
+                <li><a href="#">blankt</a></li>
                 <li><a href="#">blankt</a></li>
                 <li><a href="#">blankt</a></li>
                 <li><a href="#">blankt</a></li>
@@ -25,14 +29,110 @@
                 <img src="pictures/xmark-solid.svg" alt=""></button>
             <nav>
                 <ul>
-                    <li><a href="index.html">Startsida</a></li>
-                    <li><a href="sass.html">Sass</a></li>
-                    <li><a href="#">blankt</a></li>
-                    <li><a href="#">blankt</a></li>
-                    <li><a href="#">blankt</a>x</li>
+                    <li><a href="index.html"><span>Startsida</span></a></li>
+                    <li><a href="sass.html"><span>Sass</span></a></li>
+                    <li><a href="#"><span>blankt</span></a></li>
+                    <li><a href="#"><span>blankt</span></a></li>
+                    <li><a href="#"><span>blankt</span></a></li>
+                    <li><a href="#"><span>blankt</span></a></li>
                 </ul>
             </nav>
         </div>
     </header>
+    <main>
+        <h1>Sass</h1>
+        <article>
+            <h2>Uppgiftsbeskrivning</h2>
+            <p>Skapa en enklare fiktiv webbplats med valfritt innehåll. Webbplatsen ska bestå av minst två HTML-sidor
+                (men vill du lägga in flera är det ok). En startsida och en undersida som heter SASS. <br> <br>
+                Design, struktur etcetera bestämmer du själv. Du kommer att fortsätta utveckla denna webbplats i nästa
+                laboration så lägg gärna lite energi på färg och form.
+            </p>
+            <h3>Krav på innehåll i denna webbplats: </h3>
+            <ul>
+                <li>Överskrifter och text med valfritt innehåll.
+                </li>
+                <li>Undersidan SASS ska innehålla en utvärdering av ditt arbete med SASS. Vilka för- och nackdelar ser
+                    du med SASS? Hur var det att komma igång att arbete med en CSS-preprocessor?
+                </li>
+                <li>En huvudmeny med minst fem meny-alternativ (kan länkas till enbart "#").
+                </li>
+                <li>Webbplatsen ska ha stöd för ljust och mörkt tema med media query. Ta fram två färgscheman för detta.
+                </li>
+                <li>Webbplatsen ska ha stöd för ljust och mörkt tema med media query. Ta fram två färgscheman för detta.
+                </li>
+                <li>Responsiv webbdesign, både på innehåll och meny. Ska fungera väl på stora och små enheter.
+                </li>
+                <li>Minst två stycken bilder av något slag.
+                </li>
+            </ul>
+            <p>Webbplatsens CSS-kod ska genereras från SASS-kod. Följande saker ska (minimum) finnas med: </p>
+            <ul>
+                <li>Variabler (minst färgschema ska lagras i variabler)
+                </li>
+                <li>Color functions (darken och lighten ska som minst användas, men använd gärna fler)
+                </li>
+                <li>Nesting</li>
+                <li>Mixins</li>
+                <li>Selector inheritance (nyckelordet "@extend").
+                </li>
+                <li>If/else-satser.
+                </li>
+                <li>Minst en partial
+                </li>
+                <li>Partials med en god filstruktur för CSS-kod
+                </li>
+            </ul>
+        </article>
+        <article>
+            <h2>Arbeta med sass</h2>
+            <p>Jag är väldigt glad att kunna använda nesting på min element då jag väldigt ofta skriver t.ex.
+                #mobile_nav
+                ul li men nu kan jag istället bara lägga de i varandra. <br> <br>
+                Först kände jag att många av sakerna som t.ex. lighten och darken var överflödiga men efter jag byggt en
+                mixins där jag kunde skicka in true/false för color scheme och sedan ett procent tecken för att betämma
+                i vilken grad färgen skulle lighten/darken märkte jag hur skönt det var i längden att inte behöva hålla
+                koll på alla olika färgkoder i ett projekt och bara göra allting genom @include. <br> <br>
+                Extend hade jag inte jättemycket använding av på denna webbsida (antagligen för den är rättså liten),
+                det enda stället jag lyckades hitta som extend kunde användas utan att verka som om det användes bara
+                för att få med var när jag style:ade mina menyknappar då de har samma dimensioner förutom border radius
+                så jag gjorde bara kryss knappen en extend av hamburgarmeny knappen</p>
+        </article>
+        <article>
+            <h2>För och nackdelar med sass</h2>
+            <h3>Fördelar jag märkt</h3>
+            <ul>
+                <li>Mindre redundans i koden, mycket av den kod jag tidigare har behövt skriva flera gånger gånger kunde
+                    bytas ut mot en variabel/mixin.</li>
+                <li>
+                    partial var ett bra sätt att kunna sortera olika typer av styling, här sorterade jag bara färg och
+                    allt annat men kan se mig använda den för att t.ex. isolera header stil, footer stil och meny stil i
+                    egna dokument då har samma utseende på varje undersida.
+                </li>
+            </ul>
+            <h3>Nackdelar jag märkt</h3>
+            <ul>
+                <li>
+                    En nackdel jag märkte (kan vara för jag använder scss och inte sass) var att mina css dokuement blev
+                    väldigt röriga med alla {} som användas när jag höll på med nesting, det kändes lite som jag bytte
+                    ut att behöva hålla koll på vart jag lagt vissa elements stil till att istället behöva hålla koll på
+                    vilket element jag just nu arbetade i.
+                </li>
+                <li>
+                    Det är inte lika lätt att använda som vanliga css och kräver att du har en del kunskap i hur
+                    programmeringsspråk ser ut med variabler och funktioner då det enligt mig inte liknar vanlig css
+                    mycket alls.
+                </li>
+            </ul>
+        </article>
+    </main>
+    <footer>
+        <p>Sidskapare: Calle Alexanderson</p>
+        <div>
+            <p>kontaktinformation:</p>
+            <a href="mailto:calle.alexanderson@telia.com">calle.alexanderson@telia.com</a>
+        </div>
+    </footer>
 </body>
+
 </html>

@@ -1,0 +1,167 @@
+@use "sass:color";
+@use "colours";
+
+@mixin contentSection($w, $h, $r: 0) {
+  width: $w;
+  height: $h;
+  border-radius: $r;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  max-width: 1600px;
+  margin: auto;
+
+  header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    height: 80px;
+    width: 100%;
+
+    #logo {
+      height: 80px;
+    }
+
+    #menu_btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      @include contentSection(50px, 50px, 5px);
+      border: none;
+
+      img {
+        @include contentSection(100%, 100%);
+      }
+    }
+
+    #mobile_menu {
+      position: fixed;
+      left: 0;
+      top: 0;
+      @include contentSection(100vw, 100vh);
+
+      button {
+        @extend #menu_btn;
+        border-radius: 50%;
+
+        img {
+          @include contentSection(100%, 100%);
+        }
+      }
+
+      ul {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        list-style: none;
+
+        li {
+          margin-top: 40px;
+          @include contentSection(min(200px, 50vw), 40px);
+
+          a {
+            position: relative;
+            @include contentSection(100%, 100%, 10px);
+            display: block;
+            border: 1px solid black;
+            transition: background-color 0.25s;
+
+            span {
+              font-size: 1.4rem;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+          }
+        }
+      }
+    }
+
+    #pc_menu {
+      visibility: hidden;
+    }
+  }
+
+  main {
+    margin: 20px 5% 80px;
+    border-radius: 20px;
+    h1 {
+      text-align: center;
+    }
+    article {
+      @include contentSection(100%, auto);
+      margin: auto;
+      font-size: 1.2rem;
+      line-height: 1.5rem;
+
+      > * {
+        padding: 15px;
+      }
+
+      ul {
+        margin-left: 5%;
+        li{
+          margin-top: 10px
+        }
+      }
+    }
+  }
+
+  footer {
+    @include contentSection(min(100%, 1600px), 60px);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+
+    div {
+      display: flex;
+      flex-direction: row;
+    }
+
+    > * {
+      padding: 10px 10px 0;
+    }
+  }
+}
+
+@media screen and (min-width: 601px) {
+  body {
+    header {
+      #menu_btn {
+        visibility: hidden;
+      }
+
+      #pc_menu {
+        visibility: visible;
+        position: absolute;
+        right: 10px;
+        top: 30px;
+
+        ul {
+          list-style: none;
+          display: flex;
+
+          li {
+            margin: 0 20px;
+            padding: 6px;
+          }
+        }
+      }
+    }
+
+    main {
+      article {
+        @include contentSection(min(60%, 800px), auto);
+      }
+    }
+  }
+}
