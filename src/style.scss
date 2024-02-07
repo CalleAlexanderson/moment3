@@ -91,7 +91,7 @@ body {
   main {
     margin: 20px 5% 80px;
     border-radius: 20px;
-    h1 {
+    h1, h2 {
       text-align: center;
     }
     article {
@@ -110,6 +110,11 @@ body {
           margin-top: 10px
         }
       }
+    }
+    img{
+      display: block;
+      width: 90%;
+      margin: 20px auto;
     }
   }
 
