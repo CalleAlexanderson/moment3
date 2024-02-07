@@ -1,0 +1,80 @@
+$background-color: #21055e;
+
+$primary-color-dark: #00454b;
+$secondary-color-dark: #002537;
+$text-color-dark: #ededed;
+$text-color-light: #000000;
+
+@mixin lightOrDarkBG($light-theme, $proc: 0%) {
+  @if $light-theme {
+    background-color: lighten($background-color, $proc);
+    color: $text-color-light;
+  } @else {
+    background-color: darken($background-color, $proc);
+    color: $text-color-dark;
+  }
+}
+
+@mixin lightOrDarkPrimary($light-theme, $proc: 0%) {
+  @if $light-theme {
+    background-color: lighten($primary-color-dark, $proc);
+    color: $text-color-light;
+  } @else {
+    background-color: darken($primary-color-dark, $proc);
+    color: $text-color-dark;
+  }
+}
+
+@mixin lightOrDarksecondary($light-theme, $proc: 0%) {
+  @if $light-theme {
+    background-color: lighten($secondary-color-dark, $proc);
+    color: $text-color-light;
+  } @else {
+    background-color: darken($secondary-color-dark, $proc);
+    color: $text-color-dark;
+  }
+}
+
+body {
+  @include lightOrDarkBG(true, 60%);
+  header {
+    @include lightOrDarksecondary(true, 60%);
+
+    #logo {
+      @include lightOrDarkPrimary(true, 60%)
+    }
+
+    #mobile_menu {
+      @include lightOrDarksecondary(true, 40%)
+    }
+  }
+  main {
+    @include lightOrDarkPrimary(true, 70%);
+  }
+
+  footer {
+    @include lightOrDarksecondary(true, 60%);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    @include lightOrDarkBG(false, 10%);
+
+    header {
+      @include lightOrDarksecondary(false);
+
+      #mobile_menu {
+        @include lightOrDarkBG(false, 5%);
+      }
+    }
+
+    main {
+      @include lightOrDarkPrimary(false);
+    }
+
+    footer {
+      @include lightOrDarksecondary(false, 5%);
+    }
+  }
+}
