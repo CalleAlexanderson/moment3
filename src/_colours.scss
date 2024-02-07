@@ -41,11 +41,42 @@ body {
     @include lightOrDarksecondary(true, 60%);
 
     #logo {
-      @include lightOrDarkPrimary(true, 60%)
+      @include lightOrDarkPrimary(true, 60%);
     }
 
     #mobile_menu {
-      @include lightOrDarksecondary(true, 40%)
+      @include lightOrDarksecondary(true, 40%);
+
+      ul {
+        li {
+          a {
+            @include lightOrDarkPrimary(true, 30%);
+          }
+
+          a:hover {
+            @include lightOrDarkPrimary(true, 20%);
+          }
+        }
+      }
+    }
+
+    #pc_menu {
+      a {
+        color: $text-color-light;
+      }
+
+      li:hover {
+        border: 1px solid $text-color-light;
+        padding: 5px;
+      }
+
+      li:active {
+        background-color: $text-color-light;
+      }
+
+      li:active a{
+        color: lighten($secondary-color-dark, 60%);
+      }
     }
   }
   main {
@@ -64,8 +95,42 @@ body {
     header {
       @include lightOrDarksecondary(false);
 
+      #logo {
+        @include lightOrDarkPrimary(true, 10%);
+      }
+
       #mobile_menu {
         @include lightOrDarkBG(false, 5%);
+
+        ul {
+          li {
+            a {
+              @include lightOrDarkPrimary(false);
+            }
+
+            a:hover {
+              @include lightOrDarkPrimary(false, 10%);
+            }
+          }
+        }
+      }
+      #pc_menu {
+        a {
+          color: $text-color-dark;
+        }
+
+        li:hover {
+          border: 1px solid $text-color-dark;
+          padding: 5px;
+        }
+
+        li:active {
+          background-color: $text-color-dark;
+        }
+
+        li:active a{
+          color: $secondary-color-dark;
+        }
       }
     }
 
@@ -74,7 +139,7 @@ body {
     }
 
     footer {
-      @include lightOrDarksecondary(false, 5%);
+      @include lightOrDarksecondary(false);
     }
   }
 }
