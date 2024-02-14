@@ -1,0 +1,113 @@
+#animations_main {
+  article {
+    position: relative;
+    height: 400px;
+    width: 200px;
+    z-index: 0;
+  }
+
+  div {
+    background-color: white;
+    height: 150px;
+    width: 100%;
+    position: absolute;
+    padding: 0;
+    margin-top: 20px;
+    box-shadow: 1px 2px 4px;
+
+    *{
+        padding: 5px;
+    }
+  }
+
+  #div2 {
+    z-index: -1;
+  }
+
+  .animationShowACardQ {
+    animation: showAnswerQ 3s;
+    animation-fill-mode: forwards;
+  }
+
+  .animationShowACardA {
+    animation: showAnswerA 3s;
+    animation-fill-mode: forwards;
+  }
+
+  .animationShowQCardQ {
+    animation: showQuestionQ 3s;
+    animation-fill-mode: forwards;
+  }
+
+  .animationShowQCardA {
+    animation: showQuestionA 3s;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes showAnswerQ {
+  0% {
+    left: 0px;
+  }
+  25% {
+    left: min(50vw, 300px);
+  }
+  75% {
+    z-index: -1;
+  }
+  100% {
+    z-index: -1;
+    left: 0px;
+  }
+}
+
+@keyframes showAnswerA {
+  0% {
+    left: 0px;
+  }
+  25% {
+    left: max(-50vw, -300px);;
+  }
+  100% {
+    left: 0px;
+  }
+}
+
+@keyframes showQuestionQ {
+  0% {
+    z-index: -1;
+    left: 0px;
+  }
+  25% {
+    left: max(-50vw, -300px);;
+  }
+  75% {
+    z-index: 0;
+  }
+  100% {
+    z-index: 0;
+    left: 0px;
+  }
+}
+
+@keyframes showQuestionA {
+  0% {
+    left: 0px;
+  }
+  25% {
+    left: min(50vw, 300px);;
+  }
+  100% {
+    left: 0px;
+  }
+}
+
+@media screen and (min-width: 701px)  {
+    #animations_main {
+        article {
+            width: 300px;
+        }
+    }
+}
+
+
