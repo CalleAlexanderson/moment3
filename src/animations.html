@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="menu.js" defer></script>
+    <script src="animations.js" defer></script>
     <link rel="stylesheet" href="style.scss">
-    <title>Startsida</title>
+    <title>Animationer</title>
 </head>
 
 <body>
@@ -25,7 +26,7 @@
             <img src="pictures/bars-solid.svg" alt="">
         </button>
         <div id="mobile_menu">
-            <button id="menu_btn_x"  aria-label="stäng meny">
+            <button id="menu_btn_x" aria-label="stäng meny">
                 <img src="pictures/xmark-solid.svg" alt=""></button>
             <nav>
                 <ul>
@@ -39,32 +40,34 @@
             </nav>
         </div>
     </header>
-    <main id="index_main">
-        <article>
-            <h1>Startsida</h1>
-            <p>Denna sida kommer användas till moment 3 och moment 4 i kursen front-end baserad webbutvecklikng</p>
-        </article>
-        <article>
-            <h2>Bilder</h2>
-            <picture>
-                <source srcset="pictures/kyckling_enchiladas.jpg?as=avif&width=720" type="image/avif" />
-                <source srcset="pictures/kyckling_enchiladas.jpg?as=webp&width=720" type="image/webp" />
-                <img src="pictures/kyckling_enchiladas.jpg?width=720" alt="Bild på enchiladas" />
-            </picture>
-            <picture>
-                <source srcset="pictures/kyckling_ramen_gryta.jpg?as=avif&width=720" type="image/avif" />
-                <source srcset="pictures/kyckling_ramen_gryta.jpg?as=webp&width=720" type="image/webp" />
-                <img src="pictures/kyckling_ramen_gryta.jpg?width=720" alt="Bild på kycklingramengryta" />
-            </picture>
-        </article>
-    </main>
-    <footer>
-        <p>Sidskapare: Calle Alexanderson</p>
-        <div>
-            <p>kontaktinformation:</p>
-            <a href="mailto:calle.alexanderson@telia.com">calle.alexanderson@telia.com</a>
+    <main id="animations_main">
+        <div id="info_div">
+            <div id="info_i">
+                <p id="info_p">
+                    i
+                </p>
+            </div>
+            <div id="info">
+                <p>Klicka på kort för att byta mellan frågekort och svarskort. Klicka på knappen för att se nästa frågekort.</p>
+            </div>
         </div>
-    </footer>
+        <article>
+            <div id="div1" class="cardDivs">
+                <h1>Fråga</h1>
+                <p id="div1_p">
+                    Vad hette debut albumet från hip hop gruppen N.W.A?
+                </p>
+            </div>
+            <div id="div2" class="cardDivs">
+                <h1>Svar</h1>
+                <p id="div2_p">
+                    Straight Outta Compton
+                </p>
+            </div>
+            <button type="button" id="question_btn">Nästa fråga</button>
+        </article>
+        <img src="pictures/cat_walking.gif" alt="gående katt" id="cat_gif">
+    </main>
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 @use "sass:color";
 @use "colours";
+@use "animations";
 
 @mixin contentSection($w, $h, $r: 0) {
   width: $w;
@@ -138,7 +139,7 @@ body {
   }
 }
 
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 701px) {
   body {
     header {
       #menu_btn {
