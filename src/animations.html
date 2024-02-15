@@ -22,11 +22,11 @@
                 <li><a href="#">blankt</a></li>
             </ul>
         </nav>
-        <button id="menu_btn">
+        <button id="menu_btn" aria-label="öppna meny">
             <img src="pictures/bars-solid.svg" alt="">
         </button>
         <div id="mobile_menu">
-            <button id="menu_btn_x">
+            <button id="menu_btn_x" aria-label="stäng meny">
                 <img src="pictures/xmark-solid.svg" alt=""></button>
             <nav>
                 <ul>
@@ -41,20 +41,31 @@
         </div>
     </header>
     <main id="animations_main">
+        <div id="info_div">
+            <div>
+                <p>
+                    Hur man spelar
+                </p>
+            </div>
+            <div>
+                Klicka på kort för att se svar på fråga och klicka på pilen för att se nästa fråga.
+            </div>
+        </div>
         <article>
-            <div id="div1">
+            <div id="div1" class="cardDivs">
                 <h1>Fråga</h1>
                 <p>
                     Vad hette debut albumet från hip hop gruppen N.W.A
                 </p>
             </div>
-            <div id="div2">
+            <div id="div2" class="cardDivs">
                 <h1>Svar</h1>
                 <p>
                     Straight Outta Compton
                 </p>
             </div>
         </article>
+        <img src="pictures/cat_walking.gif" alt="gående katt" id="cat_gif">
     </main>
 </body>
 
