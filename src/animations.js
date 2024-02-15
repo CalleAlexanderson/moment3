@@ -1,12 +1,9 @@
 // Globala konstanter och variabler
-
-let cardQ;
-let cardA;
-
 let questionElem;
 let answerElem;
-
 let question;
+let cardQ;
+let cardA;
 
 // --------------------------------------------------
 // Initiera globala variabler och händelsehanterare
