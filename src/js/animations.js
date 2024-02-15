@@ -45,7 +45,7 @@ async function changeQuestion(q) {
         await new Promise(resolve => setTimeout(resolve, 3000)); //sätter en timeout på 3 sekunder så korten hinner gå igenom sin animation
     }
 
-    switch (question) {
+    switch (q) {
         case 2:
             console.log("Fråga 2");
             document.getElementById('div1_p').innerText = 'På vilket hip hop album kan låten "Many men" hittas?';
