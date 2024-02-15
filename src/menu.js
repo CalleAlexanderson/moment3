@@ -26,9 +26,16 @@ function toggleMenu() {
         menuElem.style.visibility = "visible";
         menuElem.style.height = "100vh";
         document.getElementsByTagName('body')[0].style.overflowY = "hidden";
+        if (document.title == "Animationer") {
+            document.getElementById('animations_main').style.zIndex = "-1";
+        }
     } else {
         menuElem.style.visibility = "hidden";
         menuElem.style.height = "0";
         document.getElementsByTagName('body')[0].style.overflowY = "auto";
+        
+        if (document.title == "Animationer") {
+            document.getElementById('animations_main').style.zIndex = "initial";
+        }
     }
 }

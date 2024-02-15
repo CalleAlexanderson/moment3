@@ -3,13 +3,50 @@
   position: relative;
   article {
     position: relative;
-    height: 400px;
+    height: 500px;
     width: 220px;
     z-index: 0;
   }
 
   #info_div{
-    
+    width: 80px;
+    height: 80px;
+    border: black 1px solid;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    transition: 1s;
+
+    #info_i{
+      width: 70px;
+    }
+
+    #info_p{
+      font-size: 70px;
+      width: 70px;
+      text-align: center;
+    }
+
+    p{
+      padding: 5px;
+    }
+
+    #info{
+      opacity: 0;
+      width: 0px;
+      transition: 0s;
+    }
+  }
+
+  #info_div:hover{
+    width: 270px;
+  }
+
+  #info_div:hover #info{
+    opacity: 1;
+    transition: 1s step-end;
+    width: 230px;
   }
 
   .cardDivs {
@@ -18,7 +55,7 @@
     width: 100%;
     position: absolute;
     padding: 0;
-    margin-top: 20px;
+    margin-top: 100px;
     box-shadow: 1px 2px 4px;
 
     *{
@@ -28,6 +65,12 @@
 
   #div2 {
     z-index: -1;
+  }
+
+  button{
+    position: absolute;
+    right: 0px;
+    bottom: 150px;
   }
 
   #cat_gif{

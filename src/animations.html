@@ -7,7 +7,7 @@
     <script src="menu.js" defer></script>
     <script src="animations.js" defer></script>
     <link rel="stylesheet" href="style.scss">
-    <title>Aniamtioner</title>
+    <title>Animationer</title>
 </head>
 
 <body>
@@ -32,7 +32,7 @@
                 <ul>
                     <li><a href="index.html"><span>Startsida</span></a></li>
                     <li><a href="sass.html"><span>Sass</span></a></li>
-                    <li><a href="animations.html">Animationer</a></li>
+                    <li><a href="animations.html"><span>Animationer</span></a></li>
                     <li><a href="#"><span>blankt</span></a></li>
                     <li><a href="#"><span>blankt</span></a></li>
                     <li><a href="#"><span>blankt</span></a></li>
@@ -42,28 +42,29 @@
     </header>
     <main id="animations_main">
         <div id="info_div">
-            <div>
-                <p>
-                    Hur man spelar
+            <div id="info_i">
+                <p id="info_p">
+                    i
                 </p>
             </div>
-            <div>
-                Klicka på kort för att se svar på fråga och klicka på pilen för att se nästa fråga.
+            <div id="info">
+                <p>Klicka på kort för att byta mellan frågekort och svarskort. Klicka på knappen för att se nästa frågekort.</p>
             </div>
         </div>
         <article>
             <div id="div1" class="cardDivs">
                 <h1>Fråga</h1>
-                <p>
-                    Vad hette debut albumet från hip hop gruppen N.W.A
+                <p id="div1_p">
+                    Vad hette debut albumet från hip hop gruppen N.W.A?
                 </p>
             </div>
             <div id="div2" class="cardDivs">
                 <h1>Svar</h1>
-                <p>
+                <p id="div2_p">
                     Straight Outta Compton
                 </p>
             </div>
+            <button type="button" id="question_btn">Nästa fråga</button>
         </article>
         <img src="pictures/cat_walking.gif" alt="gående katt" id="cat_gif">
     </main>
