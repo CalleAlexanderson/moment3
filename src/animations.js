@@ -1,11 +1,8 @@
 // Globala konstanter och variabler
-
 let cardQ;
 let cardA;
-
 let questionElem;
 let answerElem;
-
 let question;
 
 // --------------------------------------------------
