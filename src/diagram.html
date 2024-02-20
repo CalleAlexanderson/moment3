@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/menu.js" defer></script>
+    <script src="js/diagram.js" defer></script>
+    <link rel="stylesheet" href="css/style.scss">
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+
     <title>Document</title>
 </head>
+
 <body>
     <header>
         <a href="index.html" aria-label="till startsida"><img src="pictures/placeholder logo.svg" alt="" id="logo"></a>
@@ -35,5 +44,11 @@
             </nav>
         </div>
     </header>
+    <main>
+        <p id="msg"></p>
+        <div class="ct-chart ct-golden-section" id="chart1"></div>
+        <div class="ct-chart ct-golden-section" id="chart2"></div>
+    </main>
 </body>
+
 </html>
