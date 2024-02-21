@@ -1,11 +1,20 @@
 #diagram_main {
-  >* {
+  > * {
     margin-top: 10px;
     padding: 10px;
   }
   div {
     height: 400px;
     background-color: white;
+  }
+  p{
+    margin-left: 20%;
+  }
+  ul{
+    margin-left: 20%;
+    li{
+      margin-top: 20px;
+    }
   }
 
   /* Use this selector to override bar styles on bar charts. Bars are also strokes so you have maximum freedom in styling them. */
@@ -23,5 +32,15 @@
     stroke: white;
     /* outline width */
     stroke-width: 2px;
+    fill: hsl(182, 100%, 50%);
+  }
+  
+  .ct-label {
+    font-size: 16px;
+  }
+  #chart_div {
+    .ct-label {
+      font-size: 35px;
+    }
   }
 }

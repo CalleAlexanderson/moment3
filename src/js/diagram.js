@@ -56,7 +56,7 @@ async function makeGraphs(gData) {
     let responsiveOptionsBar = [
         ['screen and (min-width: 0)', {
             axisY: {
-                offset: 75,
+                offset: 95,
                 showGrid: false,
             },
             axisX: {
@@ -81,12 +81,7 @@ async function makeGraphs(gData) {
     new Chartist.Bar('#chart1', barChartData, barOptions, responsiveOptionsBar);
 
     let data = {
-        labels: [
-            `${programs[0].name}, ${programs[1].applicantsTotal} personer sökte programmet`,
-            `${programs[1].name}, ${programs[2].applicantsTotal} personer sökte programmet`,
-            `${programs[2].name}, ${programs[3].applicantsTotal} personer sökte programmet`,
-            `${programs[3].name}, ${programs[4].applicantsTotal} personer sökte programmet`,
-            `${programs[4].name}, ${programs[5].applicantsTotal} personer sökte programmet`],
+        labels: [`1`,`2`,`3`,`4`,`5`],
         series: [programs[0].applicantsTotal, programs[1].applicantsTotal, programs[2].applicantsTotal, programs[3].applicantsTotal, programs[4].applicantsTotal]
     };
 
@@ -99,23 +94,30 @@ async function makeGraphs(gData) {
     let responsiveOptionsPie = [
         ['screen and (min-width: 0)', {
             chartPadding: 10,
-            labelOffset: 100,
+            labelOffset: 10,
             labelDirection: 'explode',
             labelInterpolationFnc: function (value) {
                 return value;
             }
         }],
         ['screen and (min-width: 640px)', {
-            chartPadding: 20,
-            labelOffset: 100,
-            labelDirection: 'explode'
+            labelOffset: 20
         }],
         ['screen and (min-width: 1024px)', {
-            chartPadding: 30,
-            labelOffset: 0,
-            labelDirection: 'explode'
+            labelOffset: 30
         }]
     ];
+
+    let ul = document.getElementById('ul_descs');
+
+    // skapade en lista med de datan eftersom label inte blir speciellt lättläst 
+    for (let index = 0; index < 5; index++) {
+        console.log(index);
+        let li = document.createElement('li');
+        let text = document.createTextNode(`${index + 1} = ${programs[index].name}, ${programs[index].applicantsTotal} personer sökte programmet`);
+        li.appendChild(text);
+        ul.appendChild(li);
+    }
 
     new Chartist.Pie('#chart2', data, pieOptions, responsiveOptionsPie);
 }
