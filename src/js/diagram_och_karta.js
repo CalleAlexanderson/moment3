@@ -7,11 +7,12 @@ function init() {
     if (document.title == "Diagram") {
         fetchData();
     } else if (document.title == "Karta") {
-        createMap("https://www.youtube.com/embed/fJuapp9SORA?si=YPHEUzdJXZRbO1t9");
+        createMap("https://www.openstreetmap.org/export/embed.html?bbox=2.2917652130126958%2C48.85799170917724%2C2.2962445020675664%2C48.859530503276&amp;layer=mapnik&amp;marker=48.858761112139845%2C2.2940048575401306");
+        getCords();
     }
 
-    window.addEventListener('resize', ()=>{
-        createMap("https://www.youtube.com/embed/fJuapp9SORA?si=YPHEUzdJXZRbO1t9")
+    window.addEventListener('resize', () => {
+        createMap("https://www.openstreetmap.org/export/embed.html?bbox=2.2917652130126958%2C48.85799170917724%2C2.2962445020675664%2C48.859530503276&amp;layer=mapnik&amp;marker=48.858761112139845%2C2.2940048575401306")
     })
 
 } // Slut init
@@ -127,7 +128,19 @@ async function makeGraphs(gData) {
 }
 
 async function getCords() {
-    
+    // createMap("https://www.openstreetmap.org/export/embed.html?bbox=${windowCords1}%2C${windowCords2}%2C${windowCords3}%2C${windowCords4}&amp;layer=mapnik&amp;marker=${markerCords1}%2C${markerCords2}")
+    let windowCords1 = "-0.12634277343750003";
+    let windowCords2 = "51.499973957576465";
+    let windowCords3 = "-0.12280225753784181";
+    let windowCords4 = "51.50142992608211";
+    let markerCords1 = (51.499973957576465 + 51.50142992608211) / 2;
+    let markerCords2 = (-0.12634277343750003 + -0.12280225753784181) / 2;
+    console.log(markerCords1);
+    console.log(markerCords2);
+    let url = `https://www.openstreetmap.org/export/embed.html?bbox=${windowCords1}%2C${windowCords2}%2C${windowCords3}%2C${windowCords4}&amp;marker=${markerCords1}%2C${markerCords2}`;
+
+    console.log(url);
+    createMap(url)
 }
 
 async function createMap(mapUrl) {
@@ -135,10 +148,10 @@ async function createMap(mapUrl) {
     if (screen.width > 1200) {
         document.getElementById('map_div').innerHTML = `<iframe width="1100" height="600" src="${mapUrl}"></iframe>`;
         document.getElementById('karta_main').style.height = "750px";
-    } else if(screen.width > 700){
+    } else if (screen.width > 700) {
         document.getElementById('map_div').innerHTML = `<iframe width="600" height="450" src="${mapUrl}"></iframe>`;
         document.getElementById('karta_main').style.height = "600px";
-    } else{
+    } else {
         document.getElementById('map_div').innerHTML = `<iframe width="260" height="150" src="${mapUrl}"></iframe>`;
         document.getElementById('karta_main').style.height = "300px";
     }
