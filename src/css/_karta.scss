@@ -1,0 +1,23 @@
+#karta_main{
+    position: relative;
+    z-index: -1;
+    input, label{
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translate(-50%,0);
+    }
+
+    input{
+        top: 80px;
+        width: 260px;
+    }
+    iframe{
+        position: absolute;
+        top: 120px;
+        left: 50%;
+        transform: translate(-50%,0);
+        border: none;
+        border-radius: 15px;
+    }
+}

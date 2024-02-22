@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/menu.js" defer></script>
+    <script src="js/diagram_och_karta.js" defer></script>
     <link rel="stylesheet" href="css/style.scss">
-    <title>Document</title>
+    <title>Karta</title>
 </head>
 <body>
     <header>
@@ -37,5 +38,11 @@
             </nav>
         </div>
     </header>
+    <main id="karta_main">
+        <h1>Karta: hitta platser</h1>
+        <label for="place">Skriv in den plats du vill se:</label><br>
+        <input type="text" id="place" name="place" placeholder=""><br>
+        <div id="map_div"></div>
+    </main>
 </body>
 </html>

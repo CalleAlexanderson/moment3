@@ -4,7 +4,15 @@
 // Initiera globala variabler och händelsehanterare
 function init() {
 
-    fetchData();
+    if (document.title == "Diagram") {
+        fetchData();
+    } else if (document.title == "Karta") {
+        createMap("https://www.youtube.com/embed/fJuapp9SORA?si=YPHEUzdJXZRbO1t9");
+    }
+
+    window.addEventListener('resize', ()=>{
+        createMap("https://www.youtube.com/embed/fJuapp9SORA?si=YPHEUzdJXZRbO1t9")
+    })
 
 } // Slut init
 window.addEventListener('load', init);
@@ -37,9 +45,6 @@ async function makeGraphs(gData) {
             }
         }
     }
-    console.log(gData);
-    console.log(programs);
-    console.log(courses);
     courses = courses.sort((b, a) => a.applicantsTotal - b.applicantsTotal);
 
     programs = programs.sort((b, a) => a.applicantsTotal - b.applicantsTotal);
@@ -81,7 +86,7 @@ async function makeGraphs(gData) {
     new Chartist.Bar('#chart1', barChartData, barOptions, responsiveOptionsBar);
 
     let data = {
-        labels: [`1`,`2`,`3`,`4`,`5`],
+        labels: [`1`, `2`, `3`, `4`, `5`],
         series: [programs[0].applicantsTotal, programs[1].applicantsTotal, programs[2].applicantsTotal, programs[3].applicantsTotal, programs[4].applicantsTotal]
     };
 
@@ -112,7 +117,6 @@ async function makeGraphs(gData) {
 
     // skapade en lista med de datan eftersom label inte blir speciellt lättläst 
     for (let index = 0; index < 5; index++) {
-        console.log(index);
         let li = document.createElement('li');
         let text = document.createTextNode(`${index + 1} = ${programs[index].name}, ${programs[index].applicantsTotal} personer sökte programmet`);
         li.appendChild(text);
@@ -120,4 +124,22 @@ async function makeGraphs(gData) {
     }
 
     new Chartist.Pie('#chart2', data, pieOptions, responsiveOptionsPie);
+}
+
+async function getCords() {
+    
+}
+
+async function createMap(mapUrl) {
+
+    if (screen.width > 1200) {
+        document.getElementById('map_div').innerHTML = `<iframe width="1100" height="600" src="${mapUrl}"></iframe>`;
+        document.getElementById('karta_main').style.height = "750px";
+    } else if(screen.width > 700){
+        document.getElementById('map_div').innerHTML = `<iframe width="600" height="450" src="${mapUrl}"></iframe>`;
+        document.getElementById('karta_main').style.height = "600px";
+    } else{
+        document.getElementById('map_div').innerHTML = `<iframe width="260" height="150" src="${mapUrl}"></iframe>`;
+        document.getElementById('karta_main').style.height = "300px";
+    }
 }
