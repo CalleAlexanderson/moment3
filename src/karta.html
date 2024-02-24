@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="css/style.scss">
     <title>Karta</title>
 </head>
+
 <body>
     <header>
         <a href="index.html" aria-label="till startsida"><img src="pictures/placeholder logo.svg" alt="" id="logo"></a>
@@ -41,8 +43,12 @@
     <main id="karta_main">
         <h1>Karta: hitta platser</h1>
         <label for="place">Skriv in den plats du vill se:</label><br>
-        <input type="text" id="place" name="place" placeholder=""><br>
+        <div id="input_div">
+            <input type="text" id="place" name="place" ><br>
+            <button type="button" id="show_btn">Visa plats</button>
+        </div>
         <div id="map_div"></div>
     </main>
 </body>
+
 </html>

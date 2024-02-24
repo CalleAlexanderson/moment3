@@ -7,13 +7,18 @@ function init() {
     if (document.title == "Diagram") {
         fetchData();
     } else if (document.title == "Karta") {
-        createMap("https://www.openstreetmap.org/export/embed.html?bbox=2.2917652130126958%2C48.85799170917724%2C2.2962445020675664%2C48.859530503276&amp;layer=mapnik&amp;marker=48.858761112139845%2C2.2940048575401306");
+        document.getElementById('place').value = "Mid Sweden University";
         getCords();
+        document.getElementById('show_btn').addEventListener('click', getCords);
     }
 
     window.addEventListener('resize', () => {
-        createMap("https://www.openstreetmap.org/export/embed.html?bbox=2.2917652130126958%2C48.85799170917724%2C2.2962445020675664%2C48.859530503276&amp;layer=mapnik&amp;marker=48.858761112139845%2C2.2940048575401306")
+        if (document.title == "Karta") {
+            document.getElementById('place').value = "Mid Sweden University";
+            getCords();
+        }
     })
+
 
 } // Slut init
 window.addEventListener('load', init);
@@ -128,19 +133,30 @@ async function makeGraphs(gData) {
 }
 
 async function getCords() {
-    // createMap("https://www.openstreetmap.org/export/embed.html?bbox=${windowCords1}%2C${windowCords2}%2C${windowCords3}%2C${windowCords4}&amp;layer=mapnik&amp;marker=${markerCords1}%2C${markerCords2}")
-    let windowCords1 = "-0.12634277343750003";
-    let windowCords2 = "51.499973957576465";
-    let windowCords3 = "-0.12280225753784181";
-    let windowCords4 = "51.50142992608211";
-    let markerCords1 = (51.499973957576465 + 51.50142992608211) / 2;
-    let markerCords2 = (-0.12634277343750003 + -0.12280225753784181) / 2;
-    console.log(markerCords1);
-    console.log(markerCords2);
-    let url = `https://www.openstreetmap.org/export/embed.html?bbox=${windowCords1}%2C${windowCords2}%2C${windowCords3}%2C${windowCords4}&amp;marker=${markerCords1}%2C${markerCords2}`;
+    let input = document.getElementById('place').value;
 
-    console.log(url);
-    createMap(url)
+    let inputForFetch = input.replace(/\s/g, '+') //hittade denna metod här: https://flaviocopes.com/how-to-replace-whitespace-javascript/
+
+    try {
+        const response = await fetch(`https://nominatim.openstreetmap.org/search?addressdetails=1&q=${inputForFetch}&format=jsonv2&limit=1`);
+        cordsData = await response.json();
+    } catch (error) {
+        console.log(error);
+    }
+
+    if (cordsData != null) {
+        let windowLonCords1 = cordsData[0].boundingbox[2];
+        let windowLatCords2 = cordsData[0].boundingbox[0];
+        let windowLonCords3 = cordsData[0].boundingbox[3];
+        let windowLatCords4 = cordsData[0].boundingbox[1];
+        let markerLatCords1 = cordsData[0].lat;
+        let markerLonCords2 = cordsData[0].lon;
+        let url = `https://www.openstreetmap.org/export/embed.html?bbox=${windowLonCords1}%2C${windowLatCords2}%2C${windowLonCords3}%2C${windowLatCords4}&amp;marker=${markerLatCords1}%2C${markerLonCords2}`;
+
+        createMap(url)
+    } else {
+        document.getElementById('msg').innerHTML = "Något gick fel vi laddning av graferna";
+    }
 }
 
 async function createMap(mapUrl) {
