@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/menu.js" defer></script>
-    <script src="js/animations.js" defer></script>
+    <script src="js/diagram_och_karta.js" defer></script>
     <link rel="stylesheet" href="css/style.scss">
-    <title>Animationer</title>
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+
+    <title>Diagram</title>
 </head>
 
 <body>
@@ -40,33 +44,19 @@
             </nav>
         </div>
     </header>
-    <main id="animations_main">
-        <div id="info_div">
-            <div id="info_i">
-                <p id="info_p">
-                    i
-                </p>
-            </div>
-            <div id="info">
-                <p>Klicka på kort för att byta mellan frågekort och svarskort. Klicka på knappen för att se nästa frågekort.</p>
-            </div>
+    <main id="diagram_main">
+        <h1>Data gällande kurser och program på Mittunvirsitetet från period HT2023</h1>
+        <p id="msg"></p>
+        <h2>Totalsökningar på de 6 mest sökna kurserna</h2>
+        <div class="ct-chart ct-bar" id="chart1"></div>
+        <h2>Totalsökningar på de 5 mest sökna programmen</h2>
+        <p>Numret i listan representerar numret på diagrammet</p>
+        <ul id="ul_descs">
+        </ul>
+        <div id="chart_div">
+
+            <div class="ct-chart ct-slice-pie" id="chart2"></div>
         </div>
-        <article>
-            <div id="div1" class="cardDivs">
-                <h1>Fråga</h1>
-                <p id="div1_p">
-                    Vad hette debut albumet från hip hop gruppen N.W.A?
-                </p>
-            </div>
-            <div id="div2" class="cardDivs">
-                <h1>Svar</h1>
-                <p id="div2_p">
-                    Straight Outta Compton
-                </p>
-            </div>
-            <button type="button" id="question_btn">Nästa fråga</button>
-        </article>
-        <img src="pictures/cat_walking.gif" alt="gående katt" id="cat_gif">
     </main>
 </body>
 

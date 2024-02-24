@@ -1,6 +1,8 @@
 @use "sass:color";
 @use "colours";
 @use "animations";
+@use "diagram";
+@use "karta";
 
 @mixin contentSection($w, $h, $r: 0) {
   width: $w;

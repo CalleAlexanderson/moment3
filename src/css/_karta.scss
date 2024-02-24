@@ -1,0 +1,55 @@
+#karta_main {
+  position: relative;
+  // z-index: -1;
+
+  label {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  #input_div {
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    input {
+      width: 200px;
+      margin-right: 4px;
+    }
+
+    button{
+        background-color: white;
+        color: black;
+        padding: 2px;
+        border: 1px solid black;
+    }
+
+    button:active{
+        background-color: black;
+        color: white;
+    }
+  }
+
+  iframe {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border: none;
+    border-radius: 15px;
+  }
+}
+
+@media screen and (min-width: 701px) {
+  #karta_main {
+    #input_div {
+      input {
+        width: 540px;
+      }
+    }
+  }
+}

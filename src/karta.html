@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/menu.js" defer></script>
-    <script src="js/animations.js" defer></script>
+    <script src="js/diagram_och_karta.js" defer></script>
     <link rel="stylesheet" href="css/style.scss">
-    <title>Animationer</title>
+    <title>Karta</title>
 </head>
 
 <body>
@@ -40,33 +40,14 @@
             </nav>
         </div>
     </header>
-    <main id="animations_main">
-        <div id="info_div">
-            <div id="info_i">
-                <p id="info_p">
-                    i
-                </p>
-            </div>
-            <div id="info">
-                <p>Klicka på kort för att byta mellan frågekort och svarskort. Klicka på knappen för att se nästa frågekort.</p>
-            </div>
+    <main id="karta_main">
+        <h1>Karta: hitta platser</h1>
+        <label for="place">Skriv in den plats du vill se:</label><br>
+        <div id="input_div">
+            <input type="text" id="place" name="place" ><br>
+            <button type="button" id="show_btn">Visa plats</button>
         </div>
-        <article>
-            <div id="div1" class="cardDivs">
-                <h1>Fråga</h1>
-                <p id="div1_p">
-                    Vad hette debut albumet från hip hop gruppen N.W.A?
-                </p>
-            </div>
-            <div id="div2" class="cardDivs">
-                <h1>Svar</h1>
-                <p id="div2_p">
-                    Straight Outta Compton
-                </p>
-            </div>
-            <button type="button" id="question_btn">Nästa fråga</button>
-        </article>
-        <img src="pictures/cat_walking.gif" alt="gående katt" id="cat_gif">
+        <div id="map_div"></div>
     </main>
 </body>
 
