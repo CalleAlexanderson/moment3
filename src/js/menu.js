@@ -4,13 +4,15 @@
 // Initiera globala variabler och händelsehanterare
 function init() {
     let menuElem = document.getElementById('mobile_menu');
-    
+
     document.getElementById('menu_btn').addEventListener('click', () => {
         menuElem.style.visibility = "visible";
         menuElem.style.height = "100vh";
         document.getElementsByTagName('body')[0].style.overflowY = "hidden";
         if (document.title == "Animationer") {
             document.getElementById('animations_main').style.zIndex = "-1";
+        } else if (document.title == "Karta") {
+            document.getElementById('karta_main').style.zIndex = "-1";
         }
     });
     document.getElementById('menu_btn_x').addEventListener('click', () => {
@@ -20,6 +22,8 @@ function init() {
 
         if (document.title == "Animationer") {
             document.getElementById('animations_main').style.zIndex = "initial";
+        } else if (document.title == "Karta") {
+            document.getElementById('karta_main').style.zIndex = "initial";
         }
     });
 
@@ -27,7 +31,7 @@ function init() {
     menuElem.style.height = "0";
 
     window.addEventListener('resize', () => {
-        if (window.screen.width > 601) {
+        if (window.screen.width > 701) {
             menuElem.style.visibility = "hidden";
             menuElem.style.height = "0";
         }
